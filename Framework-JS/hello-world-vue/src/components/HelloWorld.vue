@@ -3,7 +3,7 @@
     <h1>Hello world</h1>
     <div id="nameList">
         <ul class="list">
-          <li v-for="item in items">{{ item }}</li>
+          <li v-for="name in items" :key="name.item">{{ name.item }}</li>
         </ul>
     </div>
   </div>
@@ -14,21 +14,19 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
-}
-
-var nameList = new Vue({
-  el: '#nameList',
-  data: {
-    items: [
-      'Arthur',
-      'Pierre',
-      'Mathis',
-      'Toto',
-      'Tata',
-    ]
-  }
-})
+  },
+   data(){
+    return {
+      items: [
+       {item: 'Arthur'},
+       {item: 'Pierre'},
+       {item: 'Mathis'},
+       {item: 'Toto'},
+       {item: 'Tata'}
+     ]
+    }
+  },
+} 
 
 </script>
 
