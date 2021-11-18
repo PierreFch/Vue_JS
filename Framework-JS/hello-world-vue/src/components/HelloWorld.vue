@@ -2,9 +2,15 @@
   <div class="hello">
     <h1>Hello world</h1>
     <div id="nameList">
-        <ul class="list">
+    <div class="listContent">
+        <ul class="list" v-if="isHidden">
           <li v-for="name in items" :key="name.item">{{ name.item }}</li>
         </ul>
+    </div>
+        <div class="bottom">
+          <button v-show="!isHidden" v-on:click="isHidden = true">Afficher la liste</button>  
+          <button v-show="isHidden" v-on:click="isHidden = false">Cacher la liste</button>
+        </div>
     </div>
   </div>
 </template>
@@ -21,12 +27,13 @@ export default {
        {item: 'Arthur'},
        {item: 'Pierre'},
        {item: 'Mathis'},
-       {item: 'Toto'},
-       {item: 'Tata'}
-     ]
+       {item: 'Bob'},
+       {item: 'L\'éponge'}
+     ],
+     isHidden: true
     }
   },
-} 
+}
 
 </script>
 
@@ -40,20 +47,26 @@ ul {
   padding: 0;
 }
 
-ul.list{
-  display: flex;
-  flex-direction: column;
+ul.list li{
+  margin: 10px;
 }
 
-ul.list li{
-  margin: 10px 0;
+.listContent{
+  min-height: 50px;
 }
 
 li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
+button {
+  background: #42b983;
+  color: #FFF;
+  padding: 10px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
 }
 </style>
