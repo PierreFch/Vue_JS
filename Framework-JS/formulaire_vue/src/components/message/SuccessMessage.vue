@@ -1,16 +1,16 @@
 <template>
     <div class="success">
-      <p>Message envoyé avec succès</p> 
+      <p>{{message}}</p> 
     </div>
 </template>
 
 <script>  
-//   export default {
-//   name: 'title',
-//   props: {
-//     title: String
-//   }
-// }
+export default {
+  name: 'SuccessMessage',
+  props: {
+    message: String
+  }
+}
 </script>
 
 <style scoped>

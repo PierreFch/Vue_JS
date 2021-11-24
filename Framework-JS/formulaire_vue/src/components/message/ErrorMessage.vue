@@ -1,16 +1,16 @@
 <template>
     <div class="error">
-        <p>Erreur d'envoi</p> 
+        <p>{{message}}</p> 
     </div>
 </template>
 
 <script>  
-//   export default {
-//   name: 'title',
-//   props: {
-//     title: String
-//   }
-// }
+  export default {
+  name: 'ErrorMessage',
+  props: {
+    message: String
+  }
+}
 </script>
 
 <style scoped>

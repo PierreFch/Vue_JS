@@ -1,7 +1,8 @@
 <template>
+<span>{{label}}</span>
 <span v-for="gender in genders" :key="gender.text">
     <input type="radio" v-bind:id="gender.nameId" v-bind:name="name" v-bind:value="gender.value">
-    <label v-bind:for="gender.nameId" >{{gender.label}}</label>
+    <label v-bind:for="gender.nameId" >{{gender.text}}</label>
 </span>
 </template>
 
@@ -17,8 +18,8 @@ export default{
   data(){
     return{
       genders: [
-        {label: 'Homme', value: 'man', nameId: 'man'},
-        {label: 'Femme', value: 'woman', nameId: 'woman'},
+        {text: 'Homme', value: 'man', nameId: 'man'},
+        {text: 'Femme', value: 'woman', nameId: 'woman'},
       ]
     }
   }

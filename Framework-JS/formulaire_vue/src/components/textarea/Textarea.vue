@@ -1,16 +1,15 @@
 <template>
-      <label for="description">Description</label>
+      <label for="description">{{label}}</label>
       <textarea name="description" id="description"></textarea>
 </template>
 
 <script>  
-//   export default {
-//   name: 'description',
-//   props: {
-//     label: String,
-//     textarea: String,
-//   }
-// }
+export default{
+  name: 'Textarea',
+  props: {
+    label: String
+  }
+}
 </script>
 
 <style scoped>

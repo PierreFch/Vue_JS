@@ -22,24 +22,23 @@
         </div>
       </div>
       <div class="radio">
-        <span>Sexe : </span>
-        <RadioInput name="gender"/>
+        <RadioInput label="Sexe :" name="gender"/>
       </div>
       <div class="date">
-        <DateInput />
+        <DateInput label="Date de naissance"/>
       </div>
       <div class="textarea">
-        <Textarea />
+        <Textarea label="Description"/>
       </div>
     </div>
     <div v-if="step === 'Etape 2'" class="step">
       <div class="select">
-        <SelectList />
+        <SelectList label="Profession :"/>
       </div>
     </div>
     <div v-if="step === 'Etape 3'" class="step">
       <div class="check">
-          <CheckInput />
+          <CheckInput label="Compétences :"/>
       </div>
     </div>
     <div class="submit">
@@ -57,8 +56,8 @@
         </div>
     </div>
     <div class="message">
-        <ErrorMessage />
-        <SuccessMessage/>
+        <ErrorMessage message="Erreur lors de l'envoi"/>
+        <SuccessMessage message="Message envoyé avec succès"/>
     </div>
   </form>
 </template>
@@ -92,7 +91,7 @@
     },
     data() {
     return {
-      colorie: '',
+      colorie: '#42b983',
       step: 'Etape 1'
     }
   }
@@ -130,14 +129,6 @@ input, textarea{
   font-size: 1em;
   min-height: 25px;
   width: 100%;
-}
-select{
-  border: 1px solid #000;
-  background: #35495E;
-  color: #FFF;
-  padding: 5px 20px;
-  font-size: 1em;
-  cursor: pointer;
 }
 input[type="radio"], input[type="checkbox"]{
   width: auto;
