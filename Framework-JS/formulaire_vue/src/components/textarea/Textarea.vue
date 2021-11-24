@@ -1,13 +1,14 @@
 <template>
-      <label for="description">{{label}}</label>
-      <textarea name="description" id="description"></textarea>
+      <label v-bind:for="name">{{label}}</label>
+      <textarea v-bind:id="name" v-bind:name="name"></textarea>
 </template>
 
 <script>  
 export default{
   name: 'Textarea',
   props: {
-    label: String
+    label: String,
+    name: String
   }
 }
 </script>

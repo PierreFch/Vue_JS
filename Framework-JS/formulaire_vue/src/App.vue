@@ -28,7 +28,7 @@
         <DateInput label="Date de naissance" name="bornDate"/>
       </div>
       <div class="textarea">
-        <Textarea label="Description"/>
+        <Textarea label="Description" name="textarea"/>
       </div>
     </div>
     <div v-if="step === 'Etape 2'" class="step">
