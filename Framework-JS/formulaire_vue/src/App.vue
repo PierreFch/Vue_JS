@@ -25,7 +25,7 @@
         <RadioInput label="Sexe :" name="gender"/>
       </div>
       <div class="date">
-        <DateInput label="Date de naissance"/>
+        <DateInput label="Date de naissance" name="bornDate"/>
       </div>
       <div class="textarea">
         <Textarea label="Description"/>
@@ -33,7 +33,7 @@
     </div>
     <div v-if="step === 'Etape 2'" class="step">
       <div class="select">
-        <SelectList label="Profession :"/>
+        <SelectList label="Profession :" name="workList"/>
       </div>
     </div>
     <div v-if="step === 'Etape 3'" class="step">

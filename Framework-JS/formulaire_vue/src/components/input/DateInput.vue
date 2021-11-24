@@ -1,13 +1,14 @@
 <template>
-    <label for="bornDate">{{label}}</label>
-    <input type="date" id="bornDate" name="bornDate" value="bornDate" >
+    <label v-bind:for="name">{{label}}</label>
+    <input type="date" v-bind:id="name" v-bind:name="name">
 </template>
 
 <script>  
 export default{
   name: 'DateInput',
   props: {
-    label: String
+    label: String,
+    name: String
   }
 }
 </script>

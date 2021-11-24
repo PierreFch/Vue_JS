@@ -1,6 +1,6 @@
 <template>
-    <label for="workList">{{label}}</label>
-    <select name="work" id="workList" v-model="selected">
+    <label v-bind:for="name">{{label}}</label>
+    <select v-bind:id="name" v-bind:name="name" v-model="selected">
       <option v-for="option in options" :key="option.text" v-bind:value="option.value">{{ option.text }}</option>
     </select>
 </template>
@@ -9,7 +9,8 @@
 export default{
   name: 'SelectList',
   props: {
-    label: String
+    label: String,
+    name: String
   },
   data(){
     return{
