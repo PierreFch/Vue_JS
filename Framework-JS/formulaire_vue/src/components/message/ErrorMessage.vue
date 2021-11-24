@@ -5,14 +5,16 @@
 </template>
 
 <script>  
-  export default {
-  name: 'title',
-  props: {
-    title: String
-  }
-}
+//   export default {
+//   name: 'title',
+//   props: {
+//     title: String
+//   }
+// }
 </script>
 
-<style>
-
+<style scoped>
+p{
+    color: #d00000;
+}
 </style>

@@ -1,18 +1,20 @@
 <template>
-    <div class="select">
-      <label for="description">Profession</label>
-      <select name="work" id="workList">
-        <option value="student">Etudiant</option>
-        <option value="employee">Employé</option>
-      </select>
-    </div>
+    <label for="description">Profession</label>
+    <select name="work" id="workList" v-model="selected">
+      <option v-for="option in options" :key="option.text" v-bind:value="option.value">{{ option.text }}</option>
+    </select>
 </template>
 
 <script>  
-  export default {
-  name: 'title',
-  props: {
-    title: String
+export default{
+  data(){
+    return{
+      selected: '1',
+      options: [
+        {text: 'Etudiant', value: '1'},
+        {text: 'Employé', value: '2'},
+      ]
+    }
   }
 }
 </script>
