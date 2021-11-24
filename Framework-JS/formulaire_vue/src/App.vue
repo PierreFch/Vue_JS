@@ -22,22 +22,22 @@
         </div>
       </div>
       <div class="radio">
-        <RadioInput label="Sexe :" name="gender"/>
+        <RadioInput name="gender" label="Sexe :"/>
       </div>
       <div class="date">
-        <DateInput label="Date de naissance" name="bornDate"/>
+        <DateInput name="bornDate" label="Date de naissance"/>
       </div>
       <div class="textarea">
-        <Textarea label="Description" name="textarea"/>
+        <Textarea name="textarea" label="Description" />
       </div>
     </div>
     <div v-if="step === 'Etape 2'" class="step">
       <div class="select">
-        <SelectList label="Profession :" name="workList"/>
+        <SelectList name="workList" label="Profession :"/>
       </div>
     </div>
     <div v-if="step === 'Etape 3'" class="step">
-      <div class="check">
+      <div class="skills">
           <CheckInput label="Compétences :"/>
       </div>
     </div>

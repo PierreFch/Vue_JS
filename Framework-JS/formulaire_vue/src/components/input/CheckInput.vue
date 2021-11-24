@@ -1,8 +1,8 @@
 <template>
 <span>{{label}}</span>
-  <div v-for="job in jobs" :key="job.text" class="job">
-    <input type="checkbox" v-bind:id="job.nameId" v-bind:name="job.nameId" v-bind:value="job.value"> 
-    <label v-bind:for="job.nameId">{{job.text}}</label>
+  <div v-for="skill in skills" :key="skill.text" class="skill">
+    <input type="checkbox" v-bind:id="skill.nameId" v-bind:name="skill.nameId" v-bind:value="skill.value"> 
+    <label v-bind:for="skill.nameId">{{skill.text}}</label>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default{
   },
   data(){
     return{
-      jobs: [
+      skills: [
         {text: 'Marketing', value: 'Marketing', nameId: 'marketing'},
         {text: 'Développement', value: 'developpement', nameId: 'developpement'},
         {text: 'Webdesign', value: 'webdesign', nameId: 'webdesign'},
