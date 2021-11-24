@@ -2,31 +2,63 @@
 <div class="image">
   <img alt="Vue logo" src="./assets/logo.png">
 </div>
-  <Title title="Formulaire de contact"/>
-  <form id="contactForm">
-    <div class="text">
-      <TextInput />
+  <div v-if="step === 'Etape 1'" class="title">
+     <Title title="Inscription" :style="{color:colorie}"/>
+  </div>
+  <div v-if="step === 'Etape 2'" class="title">
+     <Title title="Livraison" :style="{color:colorie}"/>
+  </div>
+  <div v-if="step === 'Etape 3'" class="title">
+     <Title title="Paiement" :style="{color:colorie}"/>
+  </div>
+  <form id="contactForm" v-on:submit.prevent="onSubmit">
+    <div v-if="step === 'Etape 1'" class="step">
+      <div class="text">
+        <div class="name">
+            <TextInput name="name" label="Nom"/>
+        </div>
+        <div class="name">
+            <TextInput name="firstname" label='Prénom'/>
+        </div>
+      </div>
+      <div class="radio">
+        <span>Sexe : </span>
+        <RadioInput name="gender"/>
+      </div>
+      <div class="date">
+        <DateInput />
+      </div>
+      <div class="textarea">
+        <Textarea />
+      </div>
     </div>
-    <div class="radio">
-      <RadioInput />
+    <div v-if="step === 'Etape 2'" class="step">
+      <div class="select">
+        <SelectList />
+      </div>
     </div>
-    <div class="date">
-      <DateInput />
+    <div v-if="step === 'Etape 3'" class="step">
+      <div class="check">
+          <CheckInput />
+      </div>
     </div>
-    <div class="textarea">
-      <Textarea />
-    </div>
-    <div class="select">
-      <SelectList />
-    </div>
-    <CheckInput />
     <div class="submit">
-        <ResetSubmit />
-        <ValidationSubmit />
+        <ResetSubmit value="Réinitialiser" v-on:reset="colorie='#d00000'"/>
+        <div v-if="step === 'Etape 1'">
+          <ValidationSubmit value="Suivant" v-on:click="step='Etape 2'" v-on:validation="colorie='#42b983'"/>
+        </div>
+        <div v-if="step === 'Etape 2'">
+          <ValidationSubmit value="Suivant" v-on:click="step='Etape 3'" v-on:validation="colorie='#42b983'"/>
+          <input type="submit" value="Retour en arrière" v-on:click="step='Etape 1'" class="back">
+        </div>
+        <div v-if="step === 'Etape 3'">
+          <ValidationSubmit value="Valider" v-on:validation="colorie='#42b983'"/>
+          <input type="submit" value="Retour en arrière" v-on:click="step='Etape 2'" class="back">
+        </div>
     </div>
     <div class="message">
         <ErrorMessage />
-        <SuccessMessage />
+        <SuccessMessage/>
     </div>
   </form>
 </template>
@@ -57,7 +89,13 @@
       ResetSubmit,
       ErrorMessage,
       SuccessMessage
+    },
+    data() {
+    return {
+      colorie: '',
+      step: 'Etape 1'
     }
+  }
   }
 </script>
 
@@ -75,7 +113,7 @@ form#contactForm{
   width: 40%;
   margin: auto;
 }
-form#contactForm > div{
+form#contactForm > div > div{
   margin: 10px;
 }
 div.text:nth-of-type(1){
@@ -124,4 +162,17 @@ div.submit{
   align-items: flex-start;
   padding: 20px 0;
 }
+input[type="submit"]{
+  min-width: 170px;
+}
+input.back{
+  border: 0;
+  background: #2c3e50;
+  opacity: 0.8;
+  color: #FFF;
+  padding: 10px 25px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
 </style>

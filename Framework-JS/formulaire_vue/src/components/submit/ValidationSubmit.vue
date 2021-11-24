@@ -1,16 +1,16 @@
 <template>
     <div class="validation">
-      <input type="submit" value="Valider">
+      <input type="submit" v-bind:value="value" v-on:click="$emit('validation')">
     </div>
 </template>
 
 <script>  
-//   export default {
-//   name: 'title',
-//   props: {
-//     title: String
-//   }
-// }
+export default{
+name: 'ValidationSubmit',
+  props: {
+    value: String
+  }
+}
 </script>
 
 <style scoped>

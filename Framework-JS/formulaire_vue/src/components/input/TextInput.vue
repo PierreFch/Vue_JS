@@ -1,16 +1,16 @@
 <template>
-    <div class="name">
-      <label for="name">Nom</label>
-      <input type="text" id="name" name="name" v-model="name">
-    </div>
-    <div class="name">
-      <label for="firstname">Prénom</label>
-      <input type="text" id="firstname" name="firstname" >
-    </div>
+    <label v-bind:for="name">{{label}}</label>
+    <input type="text" v-bind:id="name" v-bind:name="name">
 </template>
 
 <script>  
-
+export default{
+  name: 'TextInput',
+  props: {
+    label: String,
+    name: String
+  }
+}
 </script>
 
 <style>

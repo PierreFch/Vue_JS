@@ -1,16 +1,16 @@
 <template>
     <div class="reset">
-      <input type="reset" value="Réinitialiser">
+      <input type="reset" v-bind:value="value" v-on:click="$emit('reset')">
     </div>
 </template>
 
 <script>  
-//   export default {
-//   name: 'title',
-//   props: {
-//     title: String
-//   }
-// }
+export default{
+name: 'ResetSubmit',
+  props: {
+    value: String
+  }
+}
 </script>
 
 <style scoped>

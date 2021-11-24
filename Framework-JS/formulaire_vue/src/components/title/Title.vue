@@ -3,12 +3,12 @@
 </template>
 
 <script>
-// export default {
-//   name: 'title',
-//   props: {
-//     title: String
-//   }
-// }
+export default{
+  name: 'Title',
+  props: {
+    title: String
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
