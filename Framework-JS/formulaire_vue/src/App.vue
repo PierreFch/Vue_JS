@@ -18,7 +18,7 @@
             <TextInput name="name" label="Nom"/>
         </div>
         <div class="name">
-            <TextInput name="firstname" label='Prénom'/>
+            <TextInput name="firstname" label="Prénom"/>
         </div>
       </div>
       <div class="radio">
