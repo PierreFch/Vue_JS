@@ -4,6 +4,7 @@
         <form class="contactForm" v-on:submit.prevent="onSubmit">
         <DateInput label="Choisissez une date" name="date" />
         <RadioInput label="Choisissez un horaire" name="hour" />
+        <ErrorMessage v-if="success === 'false'"/>
         <div class="information">
           <div class="picture">
             <img src="./assets/information.png" alt="Information" title=""/>
@@ -26,7 +27,7 @@
             </div>
           </div>
         </div>
-        <SubmitInput value="Sauvegarder et continuer"/>
+        <SubmitInput value="Sauvegarder et continuer" v-on:click="success='false'"/>
     </form>
     </div>
   </section>
@@ -35,12 +36,19 @@
 <script>
 import DateInput from './components/input/DateInput.vue';
 import RadioInput from './components/input/RadioInput.vue';
-import SubmitInput from './components/input/SubmitInput.vue'
+import SubmitInput from './components/input/SubmitInput.vue';
+import ErrorMessage from './components/message/ErrorMessage.vue';
 export default {
   components:{
     DateInput,
     RadioInput,
-    SubmitInput
+    SubmitInput,
+    ErrorMessage
+  },
+  data() {
+    return {
+      success: ''
+    }
   }
 }
 </script>
@@ -75,8 +83,11 @@ form.contactForm{
 form.contactForm > div{
   margin: 20px 0;
 }
+form.contactForm div.submit{
+  margin-bottom: 0;
+}
 .label{
-  font-size: 0.8em;
+  font-size: 0.9em;
   color: #595959;
   display: block;
   margin-bottom: 8px;
@@ -84,7 +95,7 @@ form.contactForm > div{
 input{
   min-height: 30px;
   border-radius: 5px;
-  border: 1px solid #adb5bd;
+  border: 1.5px solid #343a40;
   font-size: 1em;
   font-family: 'Poppins', sans-serif;
   padding: 10px;
@@ -121,7 +132,7 @@ span.hour input{
   cursor: pointer;
 }
 span.hour input:focus{
-  background: #7f7f7f;
+  background: #343a40;
 }
 span.hour input.premium:focus{
   background: #2dc653;
@@ -134,10 +145,11 @@ span.hour input:focus + label{
   z-index: 1;
   position: relative;
 }
-div.information{
+form.contactForm div.information{
   background: #D6F3FF;
   padding: 20px;
   border-radius: 5px;
+  margin-bottom: 40px;
 }
 div.information .picture{
   width: 30px;
@@ -203,6 +215,12 @@ div.information .list #prime p:nth-of-type(1)::before{
   left: -15px;
   top: 7px;
   background: #560bad;
+}
+form.contactForm div.error{
+  background: #F5F5F5;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 40px;
 }
 
 </style>

@@ -44,12 +44,12 @@ export default {
         color: #2dc653;
     }
     input.premium{
-        border: 1px solid #2dc653;
+        border: 1.5px solid #2dc653;
     }
     label.prime{
         color: #560bad;
     }
     input.prime{
-        border: 1px solid #560bad;
+        border: 1.5px solid #560bad;
     }
 </style>
