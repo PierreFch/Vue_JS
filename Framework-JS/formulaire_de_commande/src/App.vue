@@ -3,7 +3,7 @@
   <img alt="Vue logo" src="./assets/logo.png">
 </div>
   <div class="container">
-    <HelloWorld msg="Choisi moi une couleur !" :style="{color:color}"/>
+    <HelloWorld msg="Choisi moi une couleur !" :style="{color:color}" @update-cart="updateCart"/>
     <div class="selectList">
       <Button text="bleu" v-on:click="color='#48cae4'"/>
       <Button text="vert" v-on:click="color='#41B883'"/>
@@ -32,7 +32,18 @@ export default {
     Button,
     List,
     Select
-  }
+  },
+  methods: {
+  updateCart(toto) {
+    console.log("mettre à jour panier");
+    console.log(toto)
+    //this.cart.push(e);
+    //this.total = this.shoppingCartTotal;
+  },
+  emptyCart() {
+    console.log('vider mon panier')
+    }
+  },
 }
 </script>
 
