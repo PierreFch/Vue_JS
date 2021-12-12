@@ -1,26 +1,19 @@
 <template>
   <div class="container">
-    <div class="tracker">
-      <div class="trackerTop">
-        <Title msg="CRYPTO TRACKER"/>
-        <SearchInput name="search" text="Search..."/>
-      </div>
-      <div class="trackerList">
-        
-      </div>
+  <Title msg="Ma boutique en ligne"/>
+    <div class="content">
+    
     </div>
   </div>
 </template>
 
 <script>
 import Title from './components/Title.vue';
-import SearchInput from './components/input/SearchInput.vue';
 
 export default {
-  name: 'Tracker',
+  name: 'App',
   components: {
     Title,
-    SearchInput
   }
 }
 </script>
