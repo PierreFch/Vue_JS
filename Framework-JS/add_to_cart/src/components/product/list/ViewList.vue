@@ -7,9 +7,9 @@
             <h3>{{item.text}}</h3>
             <p>{{item.description}}</p>
             <div class="bottom">
-                <!--<div class="quantity">
-                    <input type="number" id="quantity" name="quantity" min="1" v-model="item.qty"/>
-                </div>-->
+                <div class="quantity">
+                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Quantité" v-model="item.qty"/>
+                </div>
                 <div class="flex">
                     <div class="add">
                         <button v-on:click="addToCart(id)">Ajouter au panier</button>
@@ -26,7 +26,7 @@
 <script>
 export default {
   name: 'ViewList',
-  props: ["id", "text", "description", "price"],
+  props: {},
   data(){
       return{
           items: [

@@ -1,9 +1,9 @@
 <template>
   <div class="container">
   <Title msg="Ma boutique en ligne"/>
-    <div class="cart">
+    <!--<div class="cart">
       <button data-toggle="modal" data-target="#cartModal">Mon panier : ({{totalItems}})</button>
-    </div>
+    </div>-->
     <Cart />
     <div class="list">
       <ViewList />
