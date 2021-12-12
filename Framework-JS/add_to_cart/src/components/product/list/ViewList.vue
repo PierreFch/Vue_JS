@@ -4,18 +4,18 @@
             <img src="https://fakeimg.pl/300x150/" alt="Image produit" title="magasin de quelque chose quelque part">
         </div>
         <div class="description">
-            <h2>{{item.text}}</h2>
+            <h3>{{item.text}}</h3>
             <p>{{item.description}}</p>
             <div class="bottom">
-                <div class="quantity">
+                <!--<div class="quantity">
                     <input type="number" id="quantity" name="quantity" min="1" v-model="item.qty"/>
-                </div>
+                </div>-->
                 <div class="flex">
                     <div class="add">
-                        <button v-on:click="addToCart(item)">Ajouter au panier</button>
+                        <button v-on:click="addToCart(id)">Ajouter au panier</button>
                     </div>
                     <div class="price">
-                        <p>{{item.price}}</p>
+                        <p>{{item.price}}€</p>
                     </div>
                 </div>
             </div>
@@ -26,34 +26,23 @@
 <script>
 export default {
   name: 'ViewList',
-  props: {
-    name: String,
-    text: String
-  },
+  props: ["id", "text", "description", "price"],
   data(){
       return{
           items: [
-                {text: "Produit 1", description: "Mon premier produit à vendre", price: "10€"},
-                {text: "Produit 2", description: "Mon deuxième produit à vendre", price: "20€"},
-                {text: "Produit 3", description: "Mon troisème produit à vendre", price: "30€"},
-                {text: "Produit 4", description: "Mon quatrième produit à vendre", price: "5€"},
-                {text: "Produit 5", description: "Mon cinquième produit à vendre", price: "2€"},
-                {text: "Produit 6", description: "Mon sixième produit à vendre", price: "40€"},
-          ]
+                {id: 0, text: "Produit 1", description: "Mon premier produit à vendre", price: 10},
+                {id: 1 , text: "Produit 2", description: "Mon deuxième produit à vendre", price: 20},
+                {id: 2 , text: "Produit 3", description: "Mon troisème produit à vendre", price: 30},
+                {id: 3 , text: "Produit 4", description: "Mon quatrième produit à vendre", price: 5},
+                {id: 4 , text: "Produit 5", description: "Mon cinquième produit à vendre", price: 2},
+                {id: 5 , text: "Produit 6", description: "Mon sixième produit à vendre", price: 40},
+          ],
+          cart: [],
       }
   },
   methods: {
-		// Add Items to cart
-    addToCart(itemToAdd) {
-      // Add the item or increase qty
-			let itemInCart = this.cartItems.filter(item => item.id===itemToAdd.id);
-			let isItemInCart = itemInCart.length > 0;
-
-      if (isItemInCart === false) {
-      
-				itemInCart[0].qty += itemToAdd.qty;
-			}
-			itemToAdd.qty = 1;
+    addToCart(id) {
+      this.$store.dispatch("addToCart", id);
     }
   }
 }
@@ -62,14 +51,14 @@ export default {
 <style scoped>
 .item{
     margin: 20px;
-    width: calc(30% - 20px);
+    width: calc(23% - 20px);
     box-shadow: 0 10px 15px 5px #EBEBEB;
 }
 img{width: 100%;}
 .description{
     padding: 20px;
 }
-h2{
+h3{
     margin: 0;
 }
 .flex{

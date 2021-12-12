@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        
+       
     </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
   },
   data(){
       return{
+        
       }
   },
 }

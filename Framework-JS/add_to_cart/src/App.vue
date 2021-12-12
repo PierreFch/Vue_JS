@@ -1,8 +1,8 @@
 <template>
   <div class="container">
   <Title msg="Ma boutique en ligne"/>
-    <div>
-      <button class="cart" data-toggle="modal" data-target="#cartModal">Cart ({{totalItems}})</button>
+    <div class="cart">
+      <button data-toggle="modal" data-target="#cartModal">Mon panier : ({{totalItems}})</button>
     </div>
     <Cart />
     <div class="list">
@@ -48,5 +48,12 @@ img{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+}
+.cart button{
+  border: 0;
+  background: #e76f51;
+  color: #FFF;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 </style>
